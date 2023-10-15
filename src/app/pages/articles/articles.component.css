@@ -1,0 +1,5 @@
+.thumb-img{
+    object-fit: cover;
+    overflow: hidden;
+    width: 70px
+  }

@@ -1,0 +1,11 @@
+<div class="container marketing mb-3">
+    <!-- Three columns of text below the carousel -->
+    <div class="row">
+      <div class="col-lg-3" *ngFor="let category of categories">
+        <a class="text-decoration-none" routerLink="/recipes" [queryParams]="{categoryId:category.id, categoryName:category.name}">
+          <img class="rounded-circle me-1" width="140" height="140" src="{{ category.imageUrl }}" alt="">
+          <h2 class="fw-normal text-dark">{{ category.name }}</h2>
+        </a>
+      </div><!-- /.col-lg-3 -->
+    </div><!-- /.row -->
+</div>

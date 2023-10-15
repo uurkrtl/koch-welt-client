@@ -1,0 +1,158 @@
+<body>
+
+    <div class="container my-1 mt-5">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb breadcrumb-chevron p-3 bg-body-tertiary rounded-3">
+            <li class="breadcrumb-item">
+              <a class="link-body-emphasis" routerLink="/">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house-door-fill" viewBox="0 0 16 16">
+                    <path d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5Z"/>
+                </svg>
+                <span class="visually-hidden">Home</span>
+              </a>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">
+                Artikel
+            </li>
+          </ol>
+        </nav>
+    </div>
+
+<main class="container">
+  <div class="p-4 p-md-5 mb-4 mt-2 rounded text-body-emphasis bg-body-secondary">
+    <div class="col-lg-6 px-0">
+      <h1 class="display-4 fst-italic">Essen für jeden Tag</h1>
+      <p class="lead my-3">Hier finden Sie viele Rezeptideen, Tipps und Tricks für Ihren Küchenalltag, Schritt-für-Schritt-Videos unserer Kochprofis und persönliche Geschichten unserer Blogger. Kochlöffel schwingen und los geht's!</p>
+    </div>
+  </div>
+
+  <div class="row mb-1">
+    
+        <div class="col-md-6" *ngFor="let article of articles; let i = index">
+            
+        
+            <div class="col-md-12" *ngIf="i==0">
+                <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                    <div class="col-auto d-none d-lg-block">
+                      <img src="{{ article.imageUrl }}" class="bd-placeholder-img" width="250" height="100%" focusable="false">
+                    </div>
+                    <div class="col p-4 d-flex flex-column position-static">
+                        <h3 class="mb-0">{{ (article.title.length>40)? (article.title | slice:0:40)+'...' : (article.title) }}</h3>
+                        <div class="mb-1 text-body-secondary">{{ article.insertionDate | date: 'dd/MM/yyyy' }}</div>
+                        <p class="card-text mb-auto">{{ (article.description.length>70)? (article.description | slice:0:70)+'...' : (article.description) }}</p>
+                        <a routerLink="/article-detail" [queryParams]="{articleId:article.id}" class="icon-link gap-1 icon-link-hover stretched-link text-decoration-none">
+                            Weiterlesen
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-12" *ngIf="i==1">
+                <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                    <div class="col p-4 d-flex flex-column position-static">
+                        <h3 class="mb-0">{{ (article.title.length>40)? (article.title | slice:0:40)+'...' : (article.title) }}</h3>
+                        <div class="mb-1 text-body-secondary">{{ article.insertionDate | date: 'dd/MM/yyyy' }}</div>
+                        <p class="card-text mb-auto">{{ (article.description.length>70)? (article.description | slice:0:70)+'...' : (article.description) }}</p>
+                        <a routerLink="/article-detail" [queryParams]="{articleId:article.id}" class="icon-link gap-1 icon-link-hover stretched-link text-decoration-none">
+                            Weiterlesen
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                            </svg>
+                        </a>
+                    </div>
+                    <div class="col-auto d-none d-lg-block">
+                      <img src="{{ article.imageUrl }}" class="bd-placeholder-img" width="250" height="100%" focusable="false">
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-12" *ngIf="i==2">
+                <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                    <div class="col-auto d-none d-lg-block">
+                      <img src="{{ article.imageUrl }}" class="bd-placeholder-img" width="250" height="100%" focusable="false">
+                    </div>
+                    <div class="col p-4 d-flex flex-column position-static">
+                        <h3 class="mb-0">{{ (article.title.length>40)? (article.title | slice:0:40)+'...' : (article.title) }}</h3>
+                        <div class="mb-1 text-body-secondary">{{ article.insertionDate | date: 'dd/MM/yyyy' }}</div>
+                        <p class="card-text mb-auto">{{ (article.description.length>70)? (article.description | slice:0:70)+'...' : (article.description) }}</p>
+                        <a routerLink="/article-detail" [queryParams]="{articleId:article.id}" class="icon-link gap-1 icon-link-hover stretched-link text-decoration-none">
+                            Weiterlesen
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-12" *ngIf="i==3">
+                <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                    <div class="col p-4 d-flex flex-column position-static">
+                        <h3 class="mb-0">{{ (article.title.length>40)? (article.title | slice:0:40)+'...' : (article.title) }}</h3>
+                        <div class="mb-1 text-body-secondary">{{ article.insertionDate | date: 'dd/MM/yyyy' }}</div>
+                        <p class="card-text mb-auto">{{ (article.description.length>70)? (article.description | slice:0:70)+'...' : (article.description) }}</p>
+                        <a routerLink="/article-detail" [queryParams]="{articleId:article.id}" class="icon-link gap-1 icon-link-hover stretched-link text-decoration-none">
+                            Weiterlesen
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                            </svg>
+                        </a>
+                    </div>
+                    <div class="col-auto d-none d-lg-block">
+                      <img src="{{ article.imageUrl }}" class="bd-placeholder-img" width="250" height="100%" focusable="false">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+  </div>
+
+  <div class="row">
+    <div class="col-md-8" >
+      <div *ngFor="let article of articles; let i=index">
+        <article class="blog-post" *ngIf="i>3">
+          <a routerLink="/article-detail" [queryParams]="{articleId:article.id}" class="icon-link gap-1 icon-link-hover text-decoration-none">
+            <h2 class="display-5 link-body-emphasis mb-1 mt-1">{{ (article.title.length>80)? (article.title | slice:0:80)+'...' : (article.title) }}</h2>
+          </a>
+          <p class="blog-post-meta">{{ article.insertionDate | date: 'dd/MM/yyyy' }} by <a href="#">{{ article.userFirstName }}</a></p>
+
+          <p>{{ (article.description.length>200)? (article.description | slice:0:200)+'...' : (article.description) }}</p>
+          <a routerLink="/article-detail" [queryParams]="{articleId:article.id}" class="icon-link gap-1 icon-link-hover text-decoration-none">
+              Weiterlesen
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+            </svg>
+            </a>
+          <hr>
+        </article>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="position-sticky" style="top: 2rem;">
+        <div class="p-4 mb-3 bg-body-tertiary rounded">
+          <h4 class="fst-italic">Beliebte Artikel</h4>
+          <ul class="list-unstyled">
+            <li *ngFor="let article of articlesPopular">
+              <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top" routerLink="/article-detail" [queryParams]="{articleId:article.id}">
+                <img src="{{ article.imageUrl }}" alt="twbs" width="100%" height="90" class="thumb-img">
+                <div class="col-lg-8">
+                  <h6 class="mb-0">{{ (article.title.length>80)? (article.title | slice:0:80)+'...' : (article.title) }}</h6>
+                  <small class="text-body-secondary">{{ article.insertionDate | date: 'dd/MM/yyyy' }}</small>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<script src="/docs/5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+</body>

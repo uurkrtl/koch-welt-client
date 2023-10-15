@@ -1,0 +1,48 @@
+<body>
+
+<div class="col-lg-8 mx-auto p-4 py-md-5 mt-3">
+  <header class="d-flex align-items-left pb-3 mb-3 border-bottom">
+    
+    <!-- Breadcrumbs -->
+    <div class="container my-1">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb breadcrumb-chevron p-3 bg-body-tertiary rounded-3 mb-1">
+            <li class="breadcrumb-item">
+              <a class="link-body-emphasis" routerLink="/">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house-door-fill" viewBox="0 0 16 16">
+                    <path d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5Z"/>
+                </svg>
+                <span class="visually-hidden">Home</span>
+              </a>
+            </li>
+            <li class="breadcrumb-item">
+              <a class="link-body-emphasis fw-semibold text-decoration-none" routerLink="/articles">Artikel</a>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">
+                {{ articleTitle }}
+            </li>
+          </ol>
+        </nav>
+    </div>
+  </header>
+
+  <!-- Snippers code -->
+  <div *ngIf="dataLoaded==false" class="spinner-border text-primary" role="status">
+    <span class="visually-hidden">Wird geladen...</span>
+  </div>
+
+  <main>
+    <h1 class="text-body-emphasis mb-3">{{ articleTitle }}</h1>
+    <img src="{{ articleImageUrl }}" class="img-fluid mb-3">
+    <p class="fs-5 col-md-12 mb-5">
+        {{ articleDescription }}
+    </p>
+  </main>
+  <h4 class="mb-3 mt-3">Rezept erstellt von</h4>
+    <div class="mb-5">
+      <h6> <img class="rounded-circle me-1" width="60" height="52" src="{{ articleUserImageUrl }}" alt="">
+        {{ articleUserFirstName }} {{ articleUserLastName }}</h6>
+  </div>
+</div>
+<script src="/docs/5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+</body>

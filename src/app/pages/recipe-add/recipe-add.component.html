@@ -1,0 +1,97 @@
+<body class="bg-body-tertiary">    
+    <div class="container">
+        <main>
+            <div class="py-5 text-center">
+                <img class="d-block mx-auto mb-4 mt-5" src="https://i.ibb.co/Y45PnJt/chef.png" alt="" width="72" height="57">
+                <h2>Rezept hinzufügen</h2>
+                <p class="lead">Sie können auf dieser Seite ein neues Rezept hinzufügen. Nach dem Speichern des Rezepts können Sie die Zutaten hinzufügen.</p>
+            </div>
+
+            <div class="row g-5">
+                <div class="col-md-12 col-lg-12">
+                    <form [formGroup]="recipeAddForm" class="needs-validation mb-3">
+                        <div class="row g-3">
+
+                            <div class="col-12">
+                                <label for="name" class="form-label">Rezeptname</label>
+                                <input type="text" id="name" formControlName="name" class="form-control" placeholder="Rezeptname"/>
+                                <div class="invalid-feedback">
+                                    Ein gültiger Rezeptname ist erforderlich.
+                                </div>
+                            </div>
+
+                            <div class="col-12">
+                                <label for="preparation" class="form-label">Vorbereitung</label>
+                                <input type="text" id="preparation" formControlName="preparation" class="form-control" placeholder="Vorbereitung"/>
+                                <div class="invalid-feedback">
+                                    Ein gültige Vorbereitung ist erforderlich.
+                                </div>
+                            </div>
+
+                            <div class="col-12">
+                                <label for="imageUrl" class="form-label">Bild-URL</label>
+                                <input type="text" id="imageUrl" formControlName="imageUrl" class="form-control" placeholder="Bild URL"/>
+                                <div class="invalid-feedback">
+                                    Eine gültige Bild-URL ist erforderlich.
+                                </div>
+                            </div>
+
+                            <div class="col-sm-4">
+                                <label for="preparationTime" class="form-label">Vorbereitungszeit</label>
+                                <div class="input-group">
+                                    <input type="number" id="preparationTime" formControlName="preparationTime" class="form-control" placeholder="Vorbereitungszeit"/>
+                                    <span class="input-group-text">minute</span>
+                                </div>
+                                <div class="invalid-feedback">
+                                    Ein gültige Vorbereitungszeit ist erforderlich.
+                                </div>
+                            </div>
+
+                            <div class="col-sm-4">
+                                <label for="bakingTime" class="form-label">Backzeit</label>
+                                <div class="input-group">
+                                    <input type="number" id="bakingTime" formControlName="bakingTime" class="form-control" placeholder="Backzeit"/>
+                                    <span class="input-group-text">minute</span>
+                                </div>
+                                <div class="invalid-feedback">
+                                    Ein gültige Backzeit ist erforderlich.
+                                </div>
+                            </div>
+
+                            <div class="col-sm-4">
+                                <label for="categoryId" class="form-label">Kategorie</label>
+                                <select class="form-select" formControlName="categoryId">
+                                    <option *ngFor="let category of categories" [ngValue]="category.id">{{category.name}}</option>
+                                </select>
+                                <div class="invalid-feedback">
+                                    Eine gültige Kategorie-ID ist erforderlich.
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <label for="userId" class="form-label">Benutzer-ID</label>
+                                <input type="number" id="userId" formControlName="userId" class="form-control" placeholder="Benutzer-ID"/>
+                                <div class="invalid-feedback">
+                                    Eine gültige Benutzer-ID ist erforderlich.
+                                </div>
+                            </div>
+                            
+                        </div>
+
+                        <!-- <hr class="my-4"> -->
+
+                        <button class="w-100 btn btn-primary btn-lg mt-5" (click)="add()">Rezept speichern</button>
+                    </form>
+
+                    <div *ngIf="errorMessage" class="alert alert-danger" role="alert">
+                        {{errorMessage}}
+                    </div>
+                    <div *ngIf="successMessage" class="alert alert-success" role="alert">
+                        {{successMessage}}
+                    </div>
+
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
